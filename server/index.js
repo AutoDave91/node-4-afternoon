@@ -7,6 +7,7 @@ const checkSession = require('./middlewares/checkForSession');
 const swagger = require('./controllers/swagController');
 const users = require('./controllers/authController');
 const cart = require('./controllers/cartController');
+const search = require('./controllers/searchController');
 
 app.use(express.json());
 const {SERVER_PORT, SESSION_SECRET}= process.env;
@@ -19,6 +20,7 @@ app.use(checkSession)
 
 app.get('/api/swag', swagger.getSwag)
 app.get('/api/user', users.getUser)
+app.get('/api/search', search.search)
 
 app.post('/api/login', users.login)
 app.post('/api/register', users.register)
